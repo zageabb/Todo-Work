@@ -105,7 +105,7 @@ elif menu == "View Tasks":
                     elapsed = (current_time - timer_start).total_seconds() / 3600
                     update_task(task_id, time_spent=task[8] + elapsed, timer_start=None)
                     #st.experimental_rerun()
-                    rerun()
+                    #rerun()
 
             # Update status
             new_status = st.selectbox(f"Update Status ({title})", ["Pending", "In Progress", "Completed"], index=["Pending", "In Progress", "Completed"].index(status), key=f"status_{task_id}")
@@ -113,7 +113,7 @@ elif menu == "View Tasks":
                 update_task(task_id, status=new_status)
                 st.success("Status updated!")
                 #st.experimental_rerun()
-                rerun()
+                #rerun()
 
 # Edit Task
 elif menu == "Edit Task":
