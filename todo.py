@@ -95,7 +95,7 @@ elif menu == "View Tasks":
             # Timer logic
             if st.button(f"Start Timer ({title})", key=f"start_{task_id}"):
                 update_task(task_id, timer_start=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-                st.experimental_rerun()
+                #st.experimental_rerun()
             if st.button(f"Stop Timer ({title})", key=f"stop_{task_id}"):
                 current_time = datetime.datetime.now()
                 task = fetch_task_by_id(task_id)
@@ -104,14 +104,14 @@ elif menu == "View Tasks":
                     timer_start = datetime.datetime.strptime(timer_start, "%Y-%m-%d %H:%M:%S")
                     elapsed = (current_time - timer_start).total_seconds() / 3600
                     update_task(task_id, time_spent=task[8] + elapsed, timer_start=None)
-                    st.experimental_rerun()
+                    #st.experimental_rerun()
 
             # Update status
             new_status = st.selectbox(f"Update Status ({title})", ["Pending", "In Progress", "Completed"], index=["Pending", "In Progress", "Completed"].index(status), key=f"status_{task_id}")
             if st.button(f"Update Status ({title})", key=f"update_status_{task_id}"):
                 update_task(task_id, status=new_status)
                 st.success("Status updated!")
-                st.experimental_rerun()
+                #st.experimental_rerun()
 
 # Edit Task
 elif menu == "Edit Task":
